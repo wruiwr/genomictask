@@ -15,9 +15,9 @@ def segments_processing(list_seg_a, list_seg_b):
     print("The result of the overlap:", overlap)
 
 def functions_processing(list_func_a, list_func_b):
-    """This function processes two lists of functions with functions processor, 
+    """This function processes two lists of functions with functions processor,
     to compute pearson correlation as a task."""
-    # process two functions 
+    # process two functions
     functions= FunctionsProcessor(list_func_a, list_func_b)
     # result of pearson correlation
     r = functions.compute_pearson_correlation()
@@ -26,7 +26,7 @@ def functions_processing(list_func_a, list_func_b):
 def segment_function_processing(list_seg, list_func):
     """This function processes a list of segment and a list of function with
     segment-function processor, to compute the mean of covered positions as a task."""
-    # process one segment and one function 
+    # process one segment and one function
     segment_function = SegmentFunctionProcessor(list_seg, list_func)
     # result of mean
     mean_covered_positions = segment_function.compute_mean_covered_positions()
@@ -55,7 +55,7 @@ def get_file_names(file_dir):
                 segment_file_names.append(f_name)
             if f_name.endswith('.f'):
                 function_file_names.append(f_name)
-    except FileNotFoundError as err: 
+    except FileNotFoundError as err:
         print("input file directory err:", str(err))
     return segment_file_names, function_file_names
 
@@ -80,7 +80,7 @@ if __name__ == '__main__':
 
     # task 2
     # function to cover data type
-    string_to_float = lambda each_line: float(each_line.strip()) # '1' -> 1 
+    string_to_float = lambda each_line: float(each_line.strip()) # '1' -> 1
     # create lists of functions
     list_functions = create_data_list(file_dir, function_file_names, string_to_float)
     # process two function data
@@ -96,7 +96,7 @@ if __name__ == '__main__':
     # data recorded in dictionary.
     combinations = []
     length = len(list_segments) * len(list_functions)
-    for i in range(length): 
+    for i in range(length):
         idx_segment = int((i + 2) / 2) - 1  # 0, 0, 1, 1
         idx_function = (i + 2) % 2          # 0, 1, 0, 1
         # combine file name and file data into a dictionary
@@ -106,10 +106,10 @@ if __name__ == '__main__':
 
     for combination in combinations:
         segment_file_name, function_file_name = tuple(combination.keys())
-        print("--- Processing a segment file %s and a function file %s:" % 
+        print("--- Processing a segment file %s and a function file %s:" %
                 (segment_file_name, function_file_name))
         list_segment = combination[segment_file_name]
-        list_function = combination[function_file_name] 
+        list_function = combination[function_file_name]
         # process a segment file and a function data
         segment_function_processing(list_segment, list_function)
     

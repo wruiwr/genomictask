@@ -24,11 +24,11 @@ class Test(unittest.TestCase):
         list_func_b = [10.5, 11.5, 12.0, 13.0, 13.5, 15.0, 14.0]
         expected_pearson_correlation = 0.9452853306994897
 
-        functions = FunctionsProcessor(list_func_a, list_func_b) 
+        functions = FunctionsProcessor(list_func_a, list_func_b)
         r = functions.compute_pearson_correlation()
         err_info = "Pearson correlation should be " + str(expected_pearson_correlation)
         self.assertEqual(r, expected_pearson_correlation, err_info)
-    
+
     def test_task_three(self):
         # test data 
         list_seg = [[1,2],[3,6]]

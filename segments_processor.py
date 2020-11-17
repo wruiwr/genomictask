@@ -1,15 +1,15 @@
-class SegmentsProcessor: 
+class SegmentsProcessor:
     def __init__(self, list_a, list_b):
         self.list_a = list_a
         self.list_b = list_b
 
     def find_overlap(self):
-        """This method finds the overlap of the regions from 
+        """This method finds the overlap of the regions from
         two lists of segments"""
 
         positions = [] # list stores overlapped positions
         overlap = 0    # the overlap (in number of positions)
-        overlap_regions = [] # list stores overlapped regions 
+        overlap_regions = [] # list stores overlapped regions
 
         idx_a = idx_b = 0 # index for list a and b, respectively
         while idx_a < len(self.list_a) and idx_b < len(self.list_b):
@@ -38,7 +38,7 @@ class SegmentsProcessor:
 
             # for next round:
             # the region with lower end coordinate is replaced by next region
-            # the region with higher end coordinate stays 
+            # the region with higher end coordinate stays
             if end_a < end_b:
                 idx_a += 1
             else:
