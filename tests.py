@@ -19,7 +19,7 @@ class Test(unittest.TestCase):
         self.assertEqual(overlap, expected_overlap, err_info)
 
     def test_task_two(self):
-        # test data 
+        # test data
         list_func_a = [10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 16.0]
         list_func_b = [10.5, 11.5, 12.0, 13.0, 13.5, 15.0, 14.0]
         expected_pearson_correlation = 0.9452853306994897
@@ -40,7 +40,7 @@ class Test(unittest.TestCase):
         mean = segment_function.compute_mean_covered_positions()
         err_info = "mean should be " + str(expected_mean)
         self.assertEqual(mean, expected_mean, err_info)
-        
+
 
 if __name__ == '__main__':
     unittest.main()

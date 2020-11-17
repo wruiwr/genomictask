@@ -7,16 +7,18 @@ from segment_function_processor import SegmentFunctionProcessor
 import os
 
 def segments_processing(list_seg_a, list_seg_b):
-    """This function processes two lists of segments with segments processor, 
+    """The function processes two lists of segments with segments processor,
     to find the overlap of segments as a task."""
+
     segments = SegmentsProcessor(list_seg_a, list_seg_b)
     # results of overlap
     overlap = segments.find_overlap()
     print("The result of the overlap:", overlap)
 
 def functions_processing(list_func_a, list_func_b):
-    """This function processes two lists of functions with functions processor,
+    """The function processes two lists of functions with functions processor,
     to compute pearson correlation as a task."""
+
     # process two functions
     functions= FunctionsProcessor(list_func_a, list_func_b)
     # result of pearson correlation
@@ -24,8 +26,9 @@ def functions_processing(list_func_a, list_func_b):
     print("Pearson correlation:", r)
 
 def segment_function_processing(list_seg, list_func):
-    """This function processes a list of segment and a list of function with
+    """The function processes a list of segment and a list of function with
     segment-function processor, to compute the mean of covered positions as a task."""
+
     # process one segment and one function
     segment_function = SegmentFunctionProcessor(list_seg, list_func)
     # result of mean
@@ -33,7 +36,8 @@ def segment_function_processing(list_seg, list_func):
     print("mean of covered positions:", mean_covered_positions)
 
 def create_data_list(file_directory_name, file_names, f):
-    """This function creates data list from input files."""
+    """The function creates data list from input files."""
+
     list_data = []
     for file_name in file_names:
         file_to_open = file_directory_name+'/'+file_name
@@ -46,7 +50,8 @@ def create_data_list(file_directory_name, file_names, f):
     return list_data
 
 def get_file_names(file_dir):
-    """This function gets segment and function file names in a directory."""
+    """The function gets segment and function file names in a directory."""
+
     segment_file_names = []
     function_file_names = []
     try:
@@ -64,7 +69,7 @@ if __name__ == '__main__':
     # get files from the directory
     file_dir = 'testfiles'
     segment_file_names, function_file_names = get_file_names(file_dir)
-       
+
     # task 1
     # function to cover data type
     string_to_int_list = lambda each_line: list(map(lambda x: int(x), each_line.strip().split('\t'))) # '1  2' -> [1, 2]
@@ -112,4 +117,4 @@ if __name__ == '__main__':
         list_function = combination[function_file_name]
         # process a segment file and a function data
         segment_function_processing(list_segment, list_function)
-    
+
