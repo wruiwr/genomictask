@@ -30,7 +30,7 @@ class Test(unittest.TestCase):
         self.assertEqual(r, expected_pearson_correlation, err_info)
 
     def test_task_three(self):
-        # test data 
+        # test data
         list_seg = [[1,2],[3,6]]
         list_func = [10.5, 11.5, 12.0, 13.0, 13.5, 15.0, 14.0]
         # expected result
