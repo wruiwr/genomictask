@@ -7,18 +7,14 @@ from segment_function_processor import SegmentFunctionProcessor
 import os
 
 def segments_processing(list_seg_a, list_seg_b):
-    """The function processes two lists of segments with segments processor,
-    to find the overlap of segments as a task."""
-
+    """The function processes two list of segments to find the overlap."""
     segments = SegmentsProcessor(list_seg_a, list_seg_b)
     # results of overlap
     overlap = segments.find_overlap()
     print("The result of the overlap:", overlap)
 
 def functions_processing(list_func_a, list_func_b):
-    """The function processes two lists of functions with functions processor,
-    to compute pearson correlation as a task."""
-
+    """The function processes two list of functions to compute pearson correlation."""
     # process two functions
     functions= FunctionsProcessor(list_func_a, list_func_b)
     # result of pearson correlation
@@ -26,9 +22,7 @@ def functions_processing(list_func_a, list_func_b):
     print("Pearson correlation:", r)
 
 def segment_function_processing(list_seg, list_func):
-    """The function processes a list of segment and a list of function with
-    segment-function processor, to compute the mean of covered positions as a task."""
-
+    """The function compute the mean of covered positions."""
     # process one segment and one function
     segment_function = SegmentFunctionProcessor(list_seg, list_func)
     # result of mean
@@ -37,7 +31,6 @@ def segment_function_processing(list_seg, list_func):
 
 def create_data_list(file_directory_name, file_names, f):
     """The function creates data list from input files."""
-
     list_data = []
     for file_name in file_names:
         file_to_open = file_directory_name+'/'+file_name
@@ -51,7 +44,6 @@ def create_data_list(file_directory_name, file_names, f):
 
 def get_file_names(file_dir):
     """The function gets segment and function file names in a directory."""
-
     segment_file_names = []
     function_file_names = []
     try:
