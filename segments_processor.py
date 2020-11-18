@@ -13,7 +13,7 @@ class SegmentsProcessor:
         idx_a = idx_b = 0 # index for list a and b, respectively
         while idx_a < len(self.list_a) and idx_b < len(self.list_b):
             # example: list_a = [[1, 2], [3, 6]] and list_b = [[0, 1], [1, 5]]
-            # loop round 1: [1,2] [0,1]; loop round 2: [1,2] [1,5]; 
+            # loop round 1: [1,2] [0,1]; loop round 2: [1,2] [1,5];
             # loop round 3: [3,6] [1,5]
 
             start_a, end_a = self.list_a[idx_a]

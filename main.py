@@ -77,8 +77,8 @@ if __name__ == '__main__':
     list_segments = create_data_list(file_dir, segment_file_names, string_to_int_list)
 
     # process two segment data
-    # TODO: Currently there are only two s files in the directory, so here 
-    # simply directly access them. If there are more files, then need to loop 
+    # TODO: Currently there are only two s files in the directory, so here
+    # simply directly access them. If there are more files, then need to loop
     # through them to process and analyze.
     print("--- Processing segment files %s and %s:" % (segment_file_names[0], segment_file_names[1]))
     segments_processing(list_segments[0], list_segments[1])
@@ -90,8 +90,8 @@ if __name__ == '__main__':
     list_functions = create_data_list(file_dir, function_file_names, string_to_float)
 
     # process two function data
-    # TODO: Currently there are only two f files in the directory, so here 
-    # simply directory access them. If there are more files, then need to 
+    # TODO: Currently there are only two f files in the directory, so here
+    # simply directory access them. If there are more files, then need to
     # loop through them to process and analyze."""
     print("--- Processing function files %s and %s:" % (function_file_names[0], function_file_names[1]))
     functions_processing(list_functions[0], list_functions[1])
