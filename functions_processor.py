@@ -16,15 +16,11 @@ class FunctionsProcessor:
         func_multiply = lambda a, b: (a - mean_list_a) * (b - mean_list_b)
         list_ab = list(map(func_multiply, self.list_a, self.list_b))
         numerator = sum(list_ab)
-        # TODO: debug
-        # print("numerator:", numerator)
 
         # compute denominator of pearson correlation formula
         sqrt_term_list_a = self.compute_sqrt_term(mean_list_a, self.list_a)
         sqrt_term_list_b = self.compute_sqrt_term(mean_list_b, self.list_b)
         denominator = sqrt_term_list_a * sqrt_term_list_b
-        # TODO: debug
-        # print("denominator:", denominator)
         return numerator/denominator
 
     def compute_sqrt_term(self, mean_list, list_num):
