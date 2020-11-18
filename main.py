@@ -59,7 +59,7 @@ def get_file_names(file_dir):
 
 if __name__ == '__main__':
     # tasks start
-    # get the name of the directory having test files 
+    # get the name of the directory having test files.
     try:
         file_dir = sys.argv[1]
     except IndexError as err:
@@ -75,12 +75,12 @@ if __name__ == '__main__':
     string_to_int_list = lambda each_line: list(map(f_to_int, each_line.strip().split('\t'))) # '1  2' -> [1, 2]
     # create lists of segments
     list_segments = create_data_list(file_dir, segment_file_names, string_to_int_list)
-    # process two segment data
-    """TODO: Currently for each type (s or f file), there are only two files in the
-    directory, so here simply directory access them. If there are more files for
-    each type, then need to loop through them to process and analyze."""
-    print("--- Processing segment files %s and %s:" % (segment_file_names[0], segment_file_names[1]))
 
+    # process two segment data
+    # TODO: Currently there are only two s files in the directory, so here 
+    # simply directly access them. If there are more files, then need to loop 
+    # through them to process and analyze.
+    print("--- Processing segment files %s and %s:" % (segment_file_names[0], segment_file_names[1]))
     segments_processing(list_segments[0], list_segments[1])
 
     # task 2
@@ -88,12 +88,12 @@ if __name__ == '__main__':
     string_to_float = lambda each_line: float(each_line.strip()) # '1' -> 1
     # create lists of functions
     list_functions = create_data_list(file_dir, function_file_names, string_to_float)
-    # process two function data
-    """TODO: Currently for each type (s or f file), there are only two files in the
-    directory, so here simply directory access them. If there are more files for
-    each type, then need to loop through them to process and analyze."""
-    print("--- Processing function files %s and %s:" % (function_file_names[0], function_file_names[1]))
 
+    # process two function data
+    # TODO: Currently there are only two f files in the directory, so here 
+    # simply directory access them. If there are more files, then need to 
+    # loop through them to process and analyze."""
+    print("--- Processing function files %s and %s:" % (function_file_names[0], function_file_names[1]))
     functions_processing(list_functions[0], list_functions[1])
 
     # task 3
