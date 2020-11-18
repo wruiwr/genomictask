@@ -5,6 +5,7 @@ from functions_processor import FunctionsProcessor
 from segment_function_processor import SegmentFunctionProcessor
 
 import os
+import sys
 
 def segments_processing(list_seg_a, list_seg_b):
     """The function processes two list of segments to find the overlap."""
@@ -58,13 +59,20 @@ def get_file_names(file_dir):
 
 if __name__ == '__main__':
     # tasks start
-    # get files from the directory
-    file_dir = 'testfiles'
+    # get the name of the directory having test files 
+    try:
+        file_dir = sys.argv[1]
+    except IndexError as err:
+        print("error:", err)
+        print("Give directory name as a command line argument!")
+        sys.exit(1)
+    # get file names from the directory
     segment_file_names, function_file_names = get_file_names(file_dir)
 
     # task 1
-    # function to cover data type
-    string_to_int_list = lambda each_line: list(map(lambda x: int(x), each_line.strip().split('\t'))) # '1  2' -> [1, 2]
+    # function to convert data type
+    f_to_int = lambda x: int(x)
+    string_to_int_list = lambda each_line: list(map(f_to_int, each_line.strip().split('\t'))) # '1  2' -> [1, 2]
     # create lists of segments
     list_segments = create_data_list(file_dir, segment_file_names, string_to_int_list)
     # process two segment data
@@ -76,7 +84,7 @@ if __name__ == '__main__':
     segments_processing(list_segments[0], list_segments[1])
 
     # task 2
-    # function to cover data type
+    # function to convert data type
     string_to_float = lambda each_line: float(each_line.strip()) # '1' -> 1
     # create lists of functions
     list_functions = create_data_list(file_dir, function_file_names, string_to_float)
